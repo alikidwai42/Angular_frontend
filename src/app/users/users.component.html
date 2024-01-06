@@ -1,0 +1,43 @@
+<div class="container mt-4" >
+    <div class="card">
+    </div>
+    <div>
+        <div class="container mt-4" >
+            <h1>User Info</h1>
+        
+            
+        <table class="table">
+            <thead>
+             <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+            
+            <tr>
+              
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                
+                <th scope="col">country</th>
+                <th scope="col">state</th>
+  
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{{user.customerId}}</td>
+                <td><input type="text" [(ngModel)]="user.name" [disabled]="!user.isEditing" /></td>
+                
+                <td><input type="text" [(ngModel)]="user.country" [disabled]="!user.isEditing" /></td>
+                <td><input type="text" [(ngModel)]="user.state" [disabled]="!user.isEditing" /></td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="editItem()" *ngIf="!user.isEditing">Edit</button>
+                  
+                  <button type="button" class="btn btn-success" (click)="saveItem(user)" *ngIf="user.isEditing">Save</button>
+                
+                  <button type="button" class="btn btn-danger" (click)="Delete(user.customerId)" >Delete</button>
+              
+                </td>
+              </tr>
+             
+              
+            </tbody>
+          </table>
+
